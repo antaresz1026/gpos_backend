@@ -1,0 +1,3 @@
+/home/antaresz/GPOS/build/CMakeFiles/gpos_sql.dir
+/home/antaresz/GPOS/build/CMakeFiles/edit_cache.dir
+/home/antaresz/GPOS/build/CMakeFiles/rebuild_cache.dir
