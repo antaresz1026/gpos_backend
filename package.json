@@ -1,0 +1,35 @@
+{
+  "name": "gpos",
+  "version": "1.0.0",
+  "description": "send & recv images",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Antaresz",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "connect-redis": "^7.1.0",
+    "dotenv": "^16.3.1",
+    "events": "^3.3.0",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "multer": "^1.4.5-lts.1",
+    "node-redis": "^0.1.7",
+    "redis": "^4.6.11",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/AntaresZ1026/GPOS"
+  },
+  "keywords": [
+    "170319"
+  ]
+}
