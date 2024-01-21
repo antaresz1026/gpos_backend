@@ -14,6 +14,7 @@ const redis_client = redis.createClient();
 const app = express();
 const port = 21026;
 
+//图片储存配置
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, '/home/antaresz/GPOS/ImageTempRepo')
@@ -25,6 +26,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+//SSL证书路径
 const https_options = {
 	key: fs.readFileSync('/etc/nginx/cert/antaresz.cc.key'),
 	cert: fs.readFileSync('/etc/nginx/cert/antaresz.cc_bundle.crt')
@@ -158,15 +160,14 @@ function process_login(req, res) {
 	
 	axios.get(query)
 		 .then(response => {
-			const sessionID = uuidv4();
-			let client_status = 0;
+			const sessionID = response.data.session_key;
 			
 			if(response.data.unionid) {
 				const userid = response.data.unionid;
-				redis_client.set(sessionID, JSON.stringify({ userid, username: 'test',  step: client_status }), 'EX', 3600, (err) => console.log('Redis Client set error'));
+				redis_client.set(sessionID, JSON.stringify({ userid, username: 'test'}), 'EX', 3600, (err) => console.log('Redis Client set error'));
 			} else {
 				const userid = response.data.openid;
-				redis_client.set(sessionID, JSON.stringify({ userid, username: 'test', step: client_status }), 'EX', 3600, (err) => console.log('Redis Client set error'));
+				redis_client.set(sessionID, JSON.stringify({ userid, username: 'test'}), 'EX', 3600, (err) => console.log('Redis Client set error'));
 			}
 			
 			res.status(200).json({ sessionID });
