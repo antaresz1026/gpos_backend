@@ -1,5 +1,9 @@
-train_model/
-input/
-output/
+.vscode/
+build/
 ImageTempRepo/
-node_modules/
+MattingScript/__pycache__/
+MattingScript/dataset/
+MattingScript/input/
+MattingScript/output/
+MattingScript/train_model
+Server/node_modules
